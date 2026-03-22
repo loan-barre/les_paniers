@@ -51,8 +51,8 @@ export function Home() {
       scrollTrigger: {
         trigger: heroRef.current,
         start: 'top top',
-        end: '+=150%',
-        scrub: 1.5,
+        end: '+=75%',
+        scrub: 0.5,
         pin: true,
         anticipatePin: 1,
       },
@@ -61,19 +61,19 @@ export function Home() {
     tl.to(logoRef.current, {
       scale: 0.8,
       opacity: 0,
-      duration: 0.3,
+      duration: 0.2,
       ease: 'power2.inOut',
     })
     .to(scrollIndicatorRef.current, {
       opacity: 0,
-      duration: 0.2,
+      duration: 0.1,
     }, 0)
     .to(contentRef.current, {
       y: 0,
       opacity: 1,
-      duration: 0.7,
+      duration: 0.4,
       ease: 'power2.out',
-    }, 0.2);
+    }, 0.1);
 
     gsap.fromTo(
       scrollIndicatorRef.current,
@@ -116,12 +116,15 @@ export function Home() {
     <main className="bg-paniers-cream">
       <div
         ref={heroRef}
-        className="relative h-screen w-screen overflow-hidden"
+        className="relative h-screen w-full overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-paniers-light via-paniers-cream to-paniers-light">
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_#FF821B_1px,_transparent_1px)] bg-[length:50px_50px]"></div>
-          </div>
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+            alt="French cuisine"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
         <div
@@ -134,14 +137,14 @@ export function Home() {
                 <img
                   src="/Group_1.svg"
                   alt="Les Paniers"
-                  className="h-16 md:h-20 w-auto"
+                  className="h-20 md:h-24 w-auto drop-shadow-2xl"
                 />
               </div>
-              <p className="text-2xl md:text-3xl text-paniers-orange font-medium">
+              <p className="text-2xl md:text-4xl text-white font-medium drop-shadow-lg">
                 {t.home.hero.subtitle}
               </p>
             </div>
-            <p className="text-paniers-dark text-lg md:text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white text-lg md:text-xl max-w-2xl mx-auto leading-relaxed drop-shadow-lg">
               {t.home.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
@@ -161,9 +164,9 @@ export function Home() {
 
         <div
           ref={scrollIndicatorRef}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-paniers-orange opacity-60"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white opacity-80"
         >
-          <span className="text-sm font-medium tracking-wide">{language === 'en' ? 'Scroll' : 'Défiler'}</span>
+          <span className="text-sm font-medium tracking-wide drop-shadow-lg">{language === 'en' ? 'Scroll' : 'Défiler'}</span>
           <ChevronDown size={24} strokeWidth={2} />
         </div>
 
