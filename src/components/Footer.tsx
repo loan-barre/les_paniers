@@ -31,13 +31,13 @@ export function Footer() {
           <div>
             <h3 className="font-serif font-bold text-xl mb-4">Les Paniers</h3>
             <p className="text-sm opacity-80 mb-6">
-              Authentic seasonal cuisine, crafted entirely at home with passion and care.
+              {t.footer.description}
             </p>
             <div className="w-12 h-12 border-2 border-paniers-red rounded-lg opacity-50" />
           </div>
 
           <div>
-            <h4 className="font-serif font-bold mb-4">Location</h4>
+            <h4 className="font-serif font-bold mb-4">{t.footer.location}</h4>
             <div className="space-y-3 text-sm opacity-80">
               <div className="flex gap-3">
                 <MapPin size={18} className="flex-shrink-0 text-paniers-red mt-0.5" />
@@ -59,7 +59,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif font-bold mb-4">Today's Hours</h4>
+            <h4 className="font-serif font-bold mb-4">{t.footer.todaysHours}</h4>
             <p className="text-sm opacity-80">{getDisplayHours()}</p>
             <div className="mt-6">
               <h5 className="text-xs font-semibold mb-2 opacity-80">{t.footer.followUs}</h5>
@@ -120,9 +120,9 @@ export function Footer() {
         <div className="border-t border-paniers-brown pt-8 flex flex-col md:flex-row justify-between items-center text-sm opacity-70">
           <p>&copy; 2024 Les Paniers. {t.footer.rights}</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-paniers-red transition-colors">Privacy</a>
-            <a href="#" className="hover:text-paniers-red transition-colors">Terms</a>
-            <a href="#" className="hover:text-paniers-red transition-colors">Allergens</a>
+            <a href="#" className="hover:text-paniers-red transition-colors">{t.footer.links.privacy}</a>
+            <a href="#" className="hover:text-paniers-red transition-colors">{t.footer.links.terms}</a>
+            <a href="#" className="hover:text-paniers-red transition-colors">{t.footer.links.allergens}</a>
           </div>
         </div>
       </div>

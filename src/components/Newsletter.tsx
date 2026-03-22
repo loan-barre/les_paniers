@@ -23,12 +23,10 @@ export function Newsletter() {
           <Mail className="w-8 h-8 text-white" />
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-paniers-brown mb-4">
-          {t.language === 'fr' ? 'Restez informé' : 'Stay Informed'}
+          {t.newsletter.title}
         </h2>
         <p className="text-lg text-paniers-brown/80 mb-8">
-          {t.language === 'fr'
-            ? 'Recevez nos nouveaux plats de la semaine et découvrez notre panier de saison en avant-première'
-            : 'Get our new weekly dishes and discover our seasonal basket in preview'}
+          {t.newsletter.description}
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -36,7 +34,7 @@ export function Newsletter() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={t.language === 'fr' ? 'Votre adresse e-mail' : 'Your email address'}
+            placeholder={t.newsletter.emailPlaceholder}
             className="flex-1 max-w-md px-6 py-4 rounded-full border-2 border-orange-200 focus:border-orange-500 focus:outline-none transition-colors"
             required
           />
@@ -44,13 +42,13 @@ export function Newsletter() {
             type="submit"
             className="px-8 py-4 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
           >
-            {t.language === 'fr' ? "S'inscrire" : 'Subscribe'}
+            {t.newsletter.buttonText}
           </button>
         </form>
 
         {status === 'success' && (
           <p className="mt-4 text-green-600 font-semibold animate-fade-in">
-            {t.language === 'fr' ? 'Merci pour votre inscription !' : 'Thank you for subscribing!'}
+            {t.newsletter.successMessage}
           </p>
         )}
       </div>

@@ -24,7 +24,7 @@ export function InteractiveMap() {
             <MapPin className="w-6 h-6 text-white" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-paniers-dark">
-            {t.language === 'fr' ? 'Comment nous trouver' : 'Find Us'}
+            {t.map.title}
           </h2>
         </div>
         <div className="space-y-2 mb-8">
@@ -32,9 +32,7 @@ export function InteractiveMap() {
             {siteConfig.contact.address}
           </p>
           <p className="text-base text-paniers-dark/70">
-            {t.language === 'fr'
-              ? 'Venez nous rendre visite au cœur de Paris'
-              : 'Come visit us in the heart of Paris'}
+            {t.map.description}
           </p>
         </div>
       </div>

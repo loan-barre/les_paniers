@@ -4,8 +4,10 @@ import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { siteConfig } from '../siteConfig';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,16 +30,15 @@ export function Contact() {
     }, 3000);
   };
 
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const dayKeys = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
   return (
     <main className="bg-paniers-cream">
       <Section className="bg-paniers-dark text-paniers-cream text-center py-16">
         <div className="space-y-4">
-          <h1 className="font-serif font-bold text-5xl md:text-6xl">Get In Touch</h1>
+          <h1 className="font-serif font-bold text-5xl md:text-6xl">{t.contact.pageTitle}</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Have questions? We'd love to hear from you.
+            {t.contact.pageSubtitle}
           </p>
         </div>
       </Section>
@@ -46,14 +47,14 @@ export function Contact() {
         <div className="space-y-8">
           <div>
             <h2 className="font-serif font-bold text-3xl text-paniers-dark mb-6">
-              Contact Information
+              {t.contact.informationTitle}
             </h2>
 
             <div className="space-y-6">
               <div className="flex gap-4">
                 <MapPin className="text-paniers-red flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <h3 className="font-semibold text-paniers-dark mb-1">Location</h3>
+                  <h3 className="font-semibold text-paniers-dark mb-1">{t.contact.locationLabel}</h3>
                   <p className="text-paniers-dark opacity-80">
                     {siteConfig.contact.address}
                   </p>
@@ -63,7 +64,7 @@ export function Contact() {
               <div className="flex gap-4">
                 <Phone className="text-paniers-red flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <h3 className="font-semibold text-paniers-dark mb-1">Phone</h3>
+                  <h3 className="font-semibold text-paniers-dark mb-1">{t.contact.phoneLabel}</h3>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
                     className="text-paniers-red hover:underline"
@@ -76,7 +77,7 @@ export function Contact() {
               <div className="flex gap-4">
                 <Mail className="text-paniers-red flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <h3 className="font-semibold text-paniers-dark mb-1">Email</h3>
+                  <h3 className="font-semibold text-paniers-dark mb-1">{t.contact.emailLabel}</h3>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
                     className="text-paniers-red hover:underline"
@@ -90,22 +91,22 @@ export function Contact() {
 
           <div>
             <h2 className="font-serif font-bold text-3xl text-paniers-dark mb-6">
-              Opening Hours
+              {t.contact.hoursTitle}
             </h2>
             <div className="space-y-3">
-              {days.map((day, index) => {
+              {dayKeys.map((dayKey) => {
                 const hours =
-                  siteConfig.openingHours[dayKeys[index] as keyof typeof siteConfig.openingHours];
+                  siteConfig.openingHours[dayKey as keyof typeof siteConfig.openingHours];
                 return (
                   <div
-                    key={day}
+                    key={dayKey}
                     className="flex justify-between items-center pb-3 border-b border-paniers-border last:border-0"
                   >
-                    <span className="font-medium text-paniers-dark">{day}</span>
+                    <span className="font-medium text-paniers-dark">{t.contact.days[dayKey as keyof typeof t.contact.days]}</span>
                     <span className="text-paniers-dark opacity-80">
                       {hours
                         ? `${hours.open} - ${hours.close} | ${hours.evening} - ${hours.closeEvening}`
-                        : 'Closed'}
+                        : t.contact.closed}
                     </span>
                   </div>
                 );
@@ -116,15 +117,15 @@ export function Contact() {
 
         <div className="bg-white rounded-lg shadow-sm p-8 border border-paniers-border h-fit">
           <h2 className="font-serif font-bold text-2xl text-paniers-dark mb-6">
-            Send us a Message
+            {t.contact.formTitle}
           </h2>
 
           {submitted ? (
             <div className="bg-paniers-light border border-paniers-red rounded-lg p-8 text-center space-y-3">
               <div className="text-3xl text-paniers-red">✓</div>
-              <h3 className="font-semibold text-paniers-dark">Thank You!</h3>
+              <h3 className="font-semibold text-paniers-dark">{t.contact.successTitle}</h3>
               <p className="text-paniers-dark opacity-80">
-                We've received your message and will respond shortly.
+                {t.contact.successMessage}
               </p>
             </div>
           ) : (
@@ -132,7 +133,7 @@ export function Contact() {
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder={t.contact.form.namePlaceholder}
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -142,7 +143,7 @@ export function Contact() {
               <input
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                placeholder={t.contact.form.emailPlaceholder}
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -151,7 +152,7 @@ export function Contact() {
 
               <textarea
                 name="message"
-                placeholder="Your message"
+                placeholder={t.contact.form.messagePlaceholder}
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
@@ -160,7 +161,7 @@ export function Contact() {
               />
 
               <Button type="submit" size="lg" variant="primary" className="w-full">
-                Send Message
+                {t.contact.form.submitButton}
               </Button>
             </form>
           )}
@@ -171,33 +172,33 @@ export function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card>
             <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
-              Visit Us
+              {t.contact.visitUsTitle}
             </h3>
             <p className="text-paniers-dark opacity-80">
-              Come experience the warmth of our restaurant in person. We're located in the heart of Paris, easily accessible by public transport.
+              {t.contact.visitUsDescription}
             </p>
           </Card>
 
           <Card>
             <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
-              Restaurant Guidelines
+              {t.contact.guidelinesTitle}
             </h3>
             <p className="text-paniers-dark opacity-80">
-              We accommodate all dietary preferences and allergies. Please inform us when making your reservation so we can prepare accordingly.
+              {t.contact.guidelinesDescription}
             </p>
           </Card>
         </div>
 
         <div className="bg-paniers-light rounded-lg p-8 text-center">
           <h2 className="font-serif font-bold text-2xl text-paniers-dark mb-4">
-            Private Dining
+            {t.contact.privateDiningTitle}
           </h2>
           <p className="text-paniers-dark opacity-90 max-w-2xl mx-auto mb-6">
-            Interested in hosting a private event or having exclusive use of our restaurant? Contact us to discuss your requirements and availability.
+            {t.contact.privateDiningDescription}
           </p>
           <a href={`mailto:${siteConfig.contact.email}`} className="inline-block">
             <Button variant="primary">
-              Inquire About Private Events
+              {t.contact.privateDiningButton}
             </Button>
           </a>
         </div>
@@ -207,17 +208,17 @@ export function Contact() {
         <div className="text-center space-y-4">
           <Clock className="mx-auto text-paniers-red" size={40} />
           <h2 className="font-serif font-bold text-3xl">
-            Experience Les Paniers
+            {t.contact.experienceTitle}
           </h2>
           <p className="opacity-90 max-w-2xl mx-auto">
-            Join us for an unforgettable dining experience featuring authentic, seasonal French cuisine in a warm and welcoming atmosphere.
+            {t.contact.experienceDescription}
           </p>
           <a href={siteConfig.thefork.reservationUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               className="bg-paniers-red hover:bg-paniers-terracotta text-white mx-auto mt-4"
             >
-              Reserve Your Table
+              {t.contact.reserveButton}
             </Button>
           </a>
         </div>

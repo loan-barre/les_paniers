@@ -40,12 +40,10 @@ export function InstagramGallery() {
     <div className="py-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-paniers-brown mb-4">
-          {t.language === 'fr' ? 'Nos Créations' : 'Our Creations'}
+          {t.gallery.title}
         </h2>
         <p className="text-lg text-paniers-brown/80 max-w-2xl mx-auto">
-          {t.language === 'fr'
-            ? 'Découvrez nos plats préparés avec amour et des ingrédients de saison'
-            : 'Discover our dishes prepared with love and seasonal ingredients'}
+          {t.gallery.description}
         </p>
       </div>
 

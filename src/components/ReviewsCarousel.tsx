@@ -79,12 +79,10 @@ export function ReviewsCarousel() {
     <div className="bg-white rounded-3xl shadow-lg p-8 md:p-12">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-paniers-brown mb-4">
-          {t.language === 'fr' ? 'Avis de nos Clients' : 'Customer Reviews'}
+          {t.reviews.title}
         </h2>
         <p className="text-lg text-paniers-brown/80">
-          {t.language === 'fr'
-            ? 'Découvrez ce que nos clients pensent de nos paniers'
-            : 'Discover what our customers think about our baskets'}
+          {t.reviews.subtitle}
         </p>
       </div>
 
