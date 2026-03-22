@@ -15,7 +15,7 @@ export function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-medium rounded-lg transition-colors';
+  const baseStyles = 'font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1';
 
   const variants = {
     primary: 'bg-paniers-red text-white hover:bg-paniers-brown',
