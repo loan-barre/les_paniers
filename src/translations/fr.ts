@@ -145,4 +145,7 @@ export const fr: Translations = {
     viewMenu: 'Voir le Menu',
     contactUs: 'Contactez-Nous',
   },
+  announcementBar: {
+    text: '🔥 Plat du jour : Blanquette de veau à l\'ancienne',
+  },
 };

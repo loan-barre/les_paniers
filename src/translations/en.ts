@@ -143,6 +143,9 @@ export const en = {
     viewMenu: 'View Menu',
     contactUs: 'Contact Us',
   },
+  announcementBar: {
+    text: '🔥 Daily Special: Traditional Blanquette de Veau',
+  },
 };
 
 export type Translations = typeof en;

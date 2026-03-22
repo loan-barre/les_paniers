@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { AnnouncementBar } from './components/AnnouncementBar';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -14,6 +15,7 @@ function App() {
     <LanguageProvider>
       <Router>
         <div className="min-h-screen bg-paniers-cream">
+          <AnnouncementBar />
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
