@@ -3,15 +3,17 @@ import { Utensils } from 'lucide-react';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Catering() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     eventDate: '',
     guestCount: '',
-    eventType: 'Wedding',
+    eventType: 'wedding',
     message: '',
   });
 
@@ -19,17 +21,24 @@ export function Catering() {
 
   // TODO: Remplacer par les images définitives
   const cateringGallery = [
-    { id: 1, title: 'Mini Appetizers', image: 'https://images.unsplash.com/photo-1608877907149-a206d75ba011?w=800&h=600&fit=crop&q=80' },
-    { id: 2, title: 'Charcuterie Board', image: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&h=600&fit=crop&q=80' },
-    { id: 3, title: 'Gourmet Desserts', image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&h=600&fit=crop&q=80' },
-    { id: 4, title: 'Cheese Selection', image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&h=600&fit=crop&q=80' },
-    { id: 5, title: 'Entrée Platters', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop&q=80' },
-    { id: 6, title: 'Buffet Setup', image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=600&fit=crop&q=80' },
-    { id: 7, title: 'Cocktail Bites', image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=600&fit=crop&q=80' },
-    { id: 8, title: 'Sweet Station', image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=600&fit=crop&q=80' },
+    { id: 1, title: 'Mini Amuse-bouches', image: 'https://images.unsplash.com/photo-1608877907149-a206d75ba011?w=800&h=600&fit=crop&q=80' },
+    { id: 2, title: 'Plateau de Charcuterie', image: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&h=600&fit=crop&q=80' },
+    { id: 3, title: 'Desserts Gourmands', image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&h=600&fit=crop&q=80' },
+    { id: 4, title: 'Sélection de Fromages', image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&h=600&fit=crop&q=80' },
+    { id: 5, title: 'Plateaux d\'Entrées', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop&q=80' },
+    { id: 6, title: 'Installation Buffet', image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=600&fit=crop&q=80' },
+    { id: 7, title: 'Bouchées Cocktail', image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=600&fit=crop&q=80' },
+    { id: 8, title: 'Espace Sucré', image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=600&fit=crop&q=80' },
   ];
 
-  const eventTypes = ['Wedding', 'Business Event', 'Birthday Party', 'Cocktail Reception', 'Anniversary', 'Graduation'];
+  const eventTypes = [
+    { value: 'wedding', label: 'Mariage' },
+    { value: 'corporate', label: 'Événement d\'Entreprise' },
+    { value: 'birthday', label: 'Fête d\'Anniversaire' },
+    { value: 'cocktail', label: 'Réception Cocktail' },
+    { value: 'anniversary', label: 'Anniversaire' },
+    { value: 'other', label: 'Autre' },
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -46,7 +55,7 @@ export function Catering() {
         phone: '',
         eventDate: '',
         guestCount: '',
-        eventType: 'Wedding',
+        eventType: 'wedding',
         message: '',
       });
       setSubmitted(false);
@@ -57,9 +66,9 @@ export function Catering() {
     <main className="bg-paniers-cream">
       <Section className="bg-paniers-dark text-paniers-cream text-center py-16">
         <div className="space-y-4">
-          <h1 className="font-display font-bold text-5xl md:text-6xl">Catering Services</h1>
+          <h1 className="font-display font-bold text-5xl md:text-6xl">{t.catering.pageTitle}</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Let us bring our seasonal cuisine to your special event
+            {t.catering.pageSubtitle}
           </p>
         </div>
       </Section>
@@ -68,30 +77,30 @@ export function Catering() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="font-display font-bold text-4xl text-paniers-dark mb-6">
-              Celebrate Your Occasion
+              {t.catering.celebrateTitle}
             </h2>
             <p className="text-paniers-dark opacity-90 mb-4 leading-relaxed">
-              At Les Paniers, we bring our culinary expertise to your celebrations. Whether you're planning an intimate gathering or a grand affair, our catering team will create an unforgettable gastronomic experience tailored to your vision.
+              Aux Paniers, nous apportons notre expertise culinaire à vos célébrations. Que vous planifiiez une réunion intime ou un grand événement, notre équipe traiteur créera une expérience gastronomique inoubliable adaptée à votre vision.
             </p>
             <p className="text-paniers-dark opacity-90 mb-6 leading-relaxed">
-              Every menu is custom-designed using entirely homemade dishes and the finest seasonal ingredients. We handle everything from consultation to service, allowing you to focus on enjoying your event.
+              Chaque menu est conçu sur mesure avec des plats entièrement faits maison et les meilleurs ingrédients de saison. Nous gérons tout, de la consultation au service, vous permettant de profiter pleinement de votre événement.
             </p>
             <div className="space-y-3">
               <div className="flex gap-3">
                 <span className="text-paniers-red font-bold">✓</span>
-                <span className="text-paniers-dark">Custom menu design</span>
+                <span className="text-paniers-dark">Conception de menu personnalisé</span>
               </div>
               <div className="flex gap-3">
                 <span className="text-paniers-red font-bold">✓</span>
-                <span className="text-paniers-dark">Professional setup & service</span>
+                <span className="text-paniers-dark">Installation et service professionnels</span>
               </div>
               <div className="flex gap-3">
                 <span className="text-paniers-red font-bold">✓</span>
-                <span className="text-paniers-dark">Wine pairing recommendations</span>
+                <span className="text-paniers-dark">Recommandations d'accords vins</span>
               </div>
               <div className="flex gap-3">
                 <span className="text-paniers-red font-bold">✓</span>
-                <span className="text-paniers-dark">Flexible delivery options</span>
+                <span className="text-paniers-dark">Options de livraison flexibles</span>
               </div>
             </div>
           </div>
@@ -107,7 +116,7 @@ export function Catering() {
 
         <div>
           <h2 className="font-display font-bold text-4xl text-paniers-dark mb-8 text-center">
-            Gallery
+            {t.catering.galleryTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {cateringGallery.map((item) => (
@@ -133,14 +142,14 @@ export function Catering() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h2 className="font-display font-bold text-3xl text-paniers-dark mb-8">
-              Request Your Event
+              {t.catering.formTitle}
             </h2>
             {submitted ? (
               <div className="bg-paniers-light border border-paniers-red rounded-lg p-8 text-center space-y-3">
                 <div className="text-3xl text-paniers-red">✓</div>
-                <h3 className="font-semibold text-paniers-dark">Thank You!</h3>
+                <h3 className="font-semibold text-paniers-dark">{t.catering.successTitle}</h3>
                 <p className="text-paniers-dark opacity-80">
-                  We've received your catering inquiry. Our team will contact you shortly to discuss your event.
+                  {t.catering.successMessage}
                 </p>
               </div>
             ) : (
@@ -149,7 +158,7 @@ export function Catering() {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder={t.catering.form.namePlaceholder}
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -158,7 +167,7 @@ export function Catering() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email Address"
+                    placeholder={t.catering.form.emailPlaceholder}
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -169,7 +178,7 @@ export function Catering() {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone Number"
+                  placeholder={t.catering.form.phonePlaceholder}
                   value={formData.phone}
                   onChange={handleChange}
                   required
@@ -188,7 +197,7 @@ export function Catering() {
                   <input
                     type="number"
                     name="guestCount"
-                    placeholder="Number of Guests"
+                    placeholder={t.catering.form.guestPlaceholder}
                     value={formData.guestCount}
                     onChange={handleChange}
                     min="1"
@@ -204,15 +213,15 @@ export function Catering() {
                   className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red"
                 >
                   {eventTypes.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
+                    <option key={type.value} value={type.value}>
+                      {type.label}
                     </option>
                   ))}
                 </select>
 
                 <textarea
                   name="message"
-                  placeholder="Tell us about your event and any special requests"
+                  placeholder={t.catering.form.messagePlaceholder}
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
@@ -220,7 +229,7 @@ export function Catering() {
                 />
 
                 <Button type="submit" size="lg" variant="primary" className="w-full">
-                  Submit Inquiry
+                  {t.catering.form.submitButton}
                 </Button>
               </form>
             )}
@@ -229,37 +238,37 @@ export function Catering() {
           <div className="space-y-6">
             <Card>
               <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
-                Wedding Receptions
+                {t.catering.services.weddings.title}
               </h3>
               <p className="text-paniers-dark opacity-80">
-                Celebrate your special day with custom menus designed to reflect your style. From intimate dinners to grand celebrations, we handle every detail.
+                {t.catering.services.weddings.description}
               </p>
             </Card>
 
             <Card>
               <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
-                Corporate Events
+                {t.catering.services.corporate.title}
               </h3>
               <p className="text-paniers-dark opacity-80">
-                Impress your clients and employees with sophisticated menus and professional service. Perfect for conferences, team dinners, and celebrations.
+                {t.catering.services.corporate.description}
               </p>
             </Card>
 
             <Card>
               <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
-                Private Parties
+                {t.catering.services.private.title}
               </h3>
               <p className="text-paniers-dark opacity-80">
-                Celebrate milestones with friends and family. Our flexible approach accommodates any group size and dietary preferences.
+                {t.catering.services.private.description}
               </p>
             </Card>
 
             <Card>
               <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
-                Cocktail Receptions
+                {t.catering.services.cocktails.title}
               </h3>
               <p className="text-paniers-dark opacity-80">
-                Passed hors d'oeuvres, stationary displays, and elegant presentations designed to delight your guests throughout the evening.
+                {t.catering.services.cocktails.description}
               </p>
             </Card>
           </div>
@@ -269,13 +278,13 @@ export function Catering() {
       <Section className="bg-paniers-light">
         <div className="text-center space-y-6 max-w-2xl mx-auto">
           <h2 className="font-display font-bold text-3xl text-paniers-dark">
-            Pricing & Packages
+            {t.catering.pricingTitle}
           </h2>
           <p className="text-paniers-dark opacity-90">
-            We offer flexible pricing based on your event type, guest count, and menu selections. Each catering package is customized to your needs and budget.
+            {t.catering.pricingDescription}
           </p>
           <p className="text-paniers-dark opacity-80 italic">
-            Contact us for a detailed quote and personalized recommendations for your event.
+            {t.catering.pricingNote}
           </p>
         </div>
       </Section>

@@ -43,57 +43,51 @@ export function Contact() {
         </div>
       </Section>
 
-      <Section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div className="space-y-8">
-          <div>
-            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-6">
+      <Section className="max-w-5xl mx-auto">
+        <div className="space-y-12">
+          <div className="text-center">
+            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-8">
               {t.contact.informationTitle}
             </h2>
 
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <MapPin className="text-paniers-red flex-shrink-0 mt-1" size={24} />
-                <div>
-                  <h3 className="font-semibold text-paniers-dark mb-1">{t.contact.locationLabel}</h3>
-                  <p className="text-paniers-dark opacity-80">
-                    {siteConfig.contact.address}
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="flex flex-col items-center text-center">
+                <MapPin className="text-paniers-red mb-4" size={32} />
+                <h3 className="font-semibold text-paniers-dark mb-2">{t.contact.locationLabel}</h3>
+                <p className="text-paniers-dark opacity-80">
+                  {siteConfig.contact.address}
+                </p>
               </div>
 
-              <div className="flex gap-4">
-                <Phone className="text-paniers-red flex-shrink-0 mt-1" size={24} />
-                <div>
-                  <h3 className="font-semibold text-paniers-dark mb-1">{t.contact.phoneLabel}</h3>
-                  <a
-                    href={`tel:${siteConfig.contact.phone}`}
-                    className="text-paniers-red hover:underline"
-                  >
-                    {siteConfig.contact.phone}
-                  </a>
-                </div>
+              <div className="flex flex-col items-center text-center">
+                <Phone className="text-paniers-red mb-4" size={32} />
+                <h3 className="font-semibold text-paniers-dark mb-2">{t.contact.phoneLabel}</h3>
+                <a
+                  href={`tel:${siteConfig.contact.phone}`}
+                  className="text-paniers-red hover:underline"
+                >
+                  {siteConfig.contact.phone}
+                </a>
               </div>
 
-              <div className="flex gap-4">
-                <Mail className="text-paniers-red flex-shrink-0 mt-1" size={24} />
-                <div>
-                  <h3 className="font-semibold text-paniers-dark mb-1">{t.contact.emailLabel}</h3>
-                  <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="text-paniers-red hover:underline"
-                  >
-                    {siteConfig.contact.email}
-                  </a>
-                </div>
+              <div className="flex flex-col items-center text-center">
+                <Mail className="text-paniers-red mb-4" size={32} />
+                <h3 className="font-semibold text-paniers-dark mb-2">{t.contact.emailLabel}</h3>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="text-paniers-red hover:underline"
+                >
+                  {siteConfig.contact.email}
+                </a>
               </div>
             </div>
           </div>
 
-          <div>
-            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-6">
+          <div className="text-center">
+            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-8">
               {t.contact.hoursTitle}
             </h2>
-            <div className="space-y-3">
+            <div className="max-w-2xl mx-auto space-y-3">
               {dayKeys.map((dayKey) => {
                 const hours =
                   siteConfig.openingHours[dayKey as keyof typeof siteConfig.openingHours];
@@ -113,64 +107,66 @@ export function Contact() {
               })}
             </div>
           </div>
-        </div>
 
-        <div className="bg-white rounded-lg shadow-sm p-8 border border-paniers-border h-fit">
-          <h2 className="font-display font-bold text-2xl text-paniers-dark mb-6">
-            {t.contact.formTitle}
-          </h2>
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-lg shadow-sm p-8 border border-paniers-border">
+              <h2 className="font-display font-bold text-2xl text-paniers-dark mb-6 text-center">
+                {t.contact.formTitle}
+              </h2>
 
-          {submitted ? (
-            <div className="bg-paniers-light border border-paniers-red rounded-lg p-8 text-center space-y-3">
-              <div className="text-3xl text-paniers-red">✓</div>
-              <h3 className="font-semibold text-paniers-dark">{t.contact.successTitle}</h3>
-              <p className="text-paniers-dark opacity-80">
-                {t.contact.successMessage}
-              </p>
+              {submitted ? (
+                <div className="bg-paniers-light border border-paniers-red rounded-lg p-8 text-center space-y-3">
+                  <div className="text-3xl text-paniers-red">✓</div>
+                  <h3 className="font-semibold text-paniers-dark">{t.contact.successTitle}</h3>
+                  <p className="text-paniers-dark opacity-80">
+                    {t.contact.successMessage}
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={t.contact.form.namePlaceholder}
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t.contact.form.emailPlaceholder}
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red"
+                  />
+
+                  <textarea
+                    name="message"
+                    placeholder={t.contact.form.messagePlaceholder}
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={6}
+                    required
+                    className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red resize-none"
+                  />
+
+                  <Button type="submit" size="lg" variant="primary" className="w-full">
+                    {t.contact.form.submitButton}
+                  </Button>
+                </form>
+              )}
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                placeholder={t.contact.form.namePlaceholder}
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red"
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder={t.contact.form.emailPlaceholder}
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red"
-              />
-
-              <textarea
-                name="message"
-                placeholder={t.contact.form.messagePlaceholder}
-                value={formData.message}
-                onChange={handleChange}
-                rows={6}
-                required
-                className="w-full px-4 py-3 border border-paniers-border rounded-lg focus:outline-none focus:ring-2 focus:ring-paniers-red resize-none"
-              />
-
-              <Button type="submit" size="lg" variant="primary" className="w-full">
-                {t.contact.form.submitButton}
-              </Button>
-            </form>
-          )}
+          </div>
         </div>
       </Section>
 
       <Section className="bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+          <Card className="text-center">
             <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
               {t.contact.visitUsTitle}
             </h3>
@@ -179,7 +175,7 @@ export function Contact() {
             </p>
           </Card>
 
-          <Card>
+          <Card className="text-center">
             <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
               {t.contact.guidelinesTitle}
             </h3>
@@ -189,7 +185,7 @@ export function Contact() {
           </Card>
         </div>
 
-        <div className="bg-paniers-light rounded-lg p-8 text-center">
+        <div className="bg-paniers-light rounded-lg p-8 text-center max-w-3xl mx-auto">
           <h2 className="font-display font-bold text-2xl text-paniers-dark mb-4">
             {t.contact.privateDiningTitle}
           </h2>
