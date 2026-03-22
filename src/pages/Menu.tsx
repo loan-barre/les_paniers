@@ -1,15 +1,47 @@
-import { useState } from 'react';
-import { Grape } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Grape, AlertCircle } from 'lucide-react';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 import { useLanguage } from '../contexts/LanguageContext';
-import { menuEn, menuFr, MenuItem, WineItem } from '../data/menuData';
+import { supabase, MenuItem as DBMenuItem } from '../lib/supabase';
+
+interface DisplayMenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  winePairing?: string;
+}
 
 export function Menu() {
   const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<'starters' | 'mains' | 'desserts' | 'wines'>('starters');
+  const [menuItems, setMenuItems] = useState<DBMenuItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const menuData = language === 'fr' ? menuFr : menuEn;
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
+
+  const fetchMenuItems = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('menu_items')
+        .select('*')
+        .eq('available', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setMenuItems(data || []);
+      setError(false);
+    } catch (err) {
+      console.error('Error fetching menu:', err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const tabs = [
     { id: 'starters' as const, label: t.menu.starters },
@@ -18,17 +50,15 @@ export function Menu() {
     { id: 'wines' as const, label: t.menu.wines },
   ];
 
-  const getMenuItems = () => {
-    switch (activeTab) {
-      case 'starters':
-        return menuData.starters;
-      case 'mains':
-        return menuData.mains;
-      case 'desserts':
-        return menuData.desserts;
-      default:
-        return [];
-    }
+  const getMenuItems = (): DisplayMenuItem[] => {
+    return menuItems
+      .filter(item => item.category === activeTab)
+      .map(item => ({
+        id: item.id,
+        name: language === 'fr' ? item.name_fr : item.name_en,
+        description: language === 'fr' ? item.description_fr : item.description_en,
+        price: `${item.price.toFixed(2)} €`,
+      }));
   };
 
   const isWineTab = activeTab === 'wines';
@@ -61,59 +91,50 @@ export function Menu() {
           ))}
         </div>
 
-        {!isWineTab ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {getMenuItems().map((item) => (
-              <Card key={item.id} className="p-6 hover:shadow-lg transition-shadow">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-serif font-bold text-xl text-paniers-dark pr-4">
-                    {item.name}
-                  </h3>
-                  <span className="text-paniers-red font-bold text-lg flex-shrink-0">
-                    {item.price}
-                  </span>
-                </div>
-                <p className="text-paniers-dark opacity-80 text-sm leading-relaxed mb-3">
-                  {item.description}
-                </p>
-                {item.winePairing && (
-                  <div className="flex items-center gap-2 text-paniers-brown text-sm">
-                    <Grape size={16} />
-                    <span>{item.winePairing}</span>
-                  </div>
-                )}
-              </Card>
-            ))}
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-paniers-red border-t-transparent"></div>
+            <p className="mt-4 text-paniers-dark opacity-70">
+              {language === 'fr' ? 'Chargement du menu...' : 'Loading menu...'}
+            </p>
+          </div>
+        ) : error ? (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-8 text-center">
+            <AlertCircle className="mx-auto mb-4 text-red-500" size={48} />
+            <h3 className="font-bold text-lg text-red-800 mb-2">
+              {language === 'fr' ? 'Erreur de chargement' : 'Loading Error'}
+            </h3>
+            <p className="text-red-700">
+              {language === 'fr'
+                ? 'Impossible de charger le menu. Veuillez réessayer plus tard.'
+                : 'Unable to load menu. Please try again later.'}
+            </p>
           </div>
         ) : (
-          <div className="space-y-8">
-            {['White', 'Red'].map((type) => (
-              <div key={type}>
-                <h3 className="font-serif font-bold text-2xl text-paniers-dark mb-6">
-                  {type === 'White' ? t.menu.white : t.menu.red}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {menuData.wines
-                    .filter((wine) => wine.type === (language === 'fr' ? (type === 'White' ? 'Blanc' : 'Rouge') : type))
-                    .map((wine) => (
-                      <Card key={wine.id} className="p-6 hover:shadow-lg transition-shadow">
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="font-serif font-bold text-lg text-paniers-dark pr-4">
-                            {wine.name}
-                          </h4>
-                          <span className="text-paniers-red font-bold text-lg flex-shrink-0">
-                            {wine.price}
-                          </span>
-                        </div>
-                        <p className="text-paniers-brown text-sm mb-2">{wine.region}</p>
-                        <p className="text-paniers-dark opacity-80 text-sm leading-relaxed">
-                          {wine.description}
-                        </p>
-                      </Card>
-                    ))}
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {getMenuItems().length === 0 ? (
+              <div className="col-span-2 text-center py-12 text-paniers-dark opacity-70">
+                {language === 'fr'
+                  ? 'Aucun plat disponible dans cette catégorie'
+                  : 'No items available in this category'}
               </div>
-            ))}
+            ) : (
+              getMenuItems().map((item) => (
+                <Card key={item.id} className="p-6 hover:shadow-lg transition-shadow">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="font-serif font-bold text-xl text-paniers-dark pr-4">
+                      {item.name}
+                    </h3>
+                    <span className="text-paniers-red font-bold text-lg flex-shrink-0">
+                      {item.price}
+                    </span>
+                  </div>
+                  <p className="text-paniers-dark opacity-80 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                </Card>
+              ))
+            )}
           </div>
         )}
       </Section>

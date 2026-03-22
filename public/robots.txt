@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /gestion-interne-paniers
 
 Sitemap: https://www.lespaniers.fr/sitemap.xml
