@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { siteConfig } from '../siteConfig';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -39,13 +39,18 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
                 to={link.path}
-                className="text-paniers-dark font-medium hover:text-paniers-red transition-colors"
+                end={link.path === '/'}
+                className={({ isActive }) =>
+                  `relative text-paniers-dark font-medium hover:text-paniers-orange transition-all pb-1 ${
+                    isActive ? 'text-paniers-orange after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-paniers-orange after:rounded-full' : ''
+                  }`
+                }
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
             <LanguageSwitcher />
             <a
@@ -62,14 +67,19 @@ export function Header() {
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-paniers-border">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
                 to={link.path}
-                className="block py-2 text-paniers-dark font-medium hover:text-paniers-red transition-colors"
+                end={link.path === '/'}
+                className={({ isActive }) =>
+                  `block py-2 text-paniers-dark font-medium hover:text-paniers-orange transition-all ${
+                    isActive ? 'text-paniers-orange' : ''
+                  }`
+                }
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
             <div className="mt-4">
               <LanguageSwitcher />
