@@ -2,7 +2,7 @@ import { Translations } from './en';
 
 export const fr: Translations = {
   nav: {
-    home: 'Accueil',
+    home: 'Accue',
     menu: 'Menu',
     reservation: 'Réservation',
     catering: 'Traiteur',
