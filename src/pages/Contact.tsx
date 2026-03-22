@@ -107,10 +107,10 @@ export function Contact() {
                   >
                     <span className="font-medium text-paniers-dark">{t.contact.days[dayKey as keyof typeof t.contact.days]}</span>
                     <span className="text-paniers-dark opacity-80 text-right w-32">
-                      {lunchHours || '-'}
+                      {lunchHours}
                     </span>
                     <span className="text-paniers-dark opacity-80 text-right w-32">
-                      {eveningHours || '-'}
+                      {eveningHours}
                     </span>
                   </div>
                 );
