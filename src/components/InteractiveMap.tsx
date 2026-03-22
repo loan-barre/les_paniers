@@ -14,7 +14,7 @@ const customIcon = L.divIcon({
 
 export function InteractiveMap() {
   const { t } = useLanguage();
-  const position: [number, number] = [48.8566, 2.3522];
+  const position: [number, number] = [48.8979, 2.5142];
 
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
