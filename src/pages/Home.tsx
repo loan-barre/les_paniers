@@ -116,7 +116,7 @@ export function Home() {
     <main className="bg-paniers-cream">
       <div
         ref={heroRef}
-        className="relative h-screen w-full overflow-hidden"
+        className="relative h-screen w-full overflow-hidden mb-0"
       >
         <div className="absolute inset-0">
           <img
@@ -173,13 +173,11 @@ export function Home() {
         <div
           ref={contentRef}
           className="absolute inset-0 flex items-center justify-center opacity-0 translate-y-full pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, rgba(255,250,247,0) 0%, rgba(255,250,247,1) 20%)' }}
         >
-          <div className="h-full w-full" />
         </div>
       </div>
 
-      <Section className="bg-white animate-section" id="about">
+      <Section className="bg-white animate-section pt-12 mt-0" id="about">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-display font-bold text-4xl mb-6 text-paniers-dark">
