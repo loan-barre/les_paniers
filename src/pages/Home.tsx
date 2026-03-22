@@ -255,39 +255,6 @@ export function Home() {
         </div>
       </Section>
 
-      <Section className="bg-white animate-section" id="wine">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-96 flex items-center justify-center order-2 md:order-1">
-            <img
-              src="/images/wine-shelves.jpg"
-              alt="Wine collection"
-              className="w-full h-full object-cover rounded-lg"
-              onError={(e) => {
-                e.currentTarget.style.background = '#D4A574';
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-            <div className="text-paniers-brown text-center">
-              <Wine size={48} className="mx-auto opacity-50 mb-2" />
-              <p className="text-sm opacity-50">wine-shelves.jpg</p>
-            </div>
-          </div>
-          <div className="order-1 md:order-2">
-            <h2 className="font-serif font-bold text-4xl mb-6 text-paniers-dark">
-              {t.home.wine.title}
-            </h2>
-            <p className="text-paniers-dark opacity-90 mb-6 leading-relaxed">
-              {t.home.wine.description}
-            </p>
-            <Link to="/menu">
-              <Button variant="outline">
-                {t.home.wine.cta}
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </Section>
-
       <Section className="bg-paniers-light animate-section" id="gallery">
         <InstagramGallery />
       </Section>
