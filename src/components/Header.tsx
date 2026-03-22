@@ -26,7 +26,7 @@ export function Header() {
             <img
               src="/Group_1.svg"
               alt="Les Paniers"
-              className="h-6 md:h-7 w-auto"
+              className="h-4 md:h-5 w-auto"
             />
           </Link>
 
