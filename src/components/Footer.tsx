@@ -29,11 +29,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div>
-            <h3 className="font-serif font-bold text-xl mb-4">Les Paniers</h3>
-            <p className="text-sm opacity-80 mb-6">
+            <img
+              src="/Group_1.svg"
+              alt="Les Paniers"
+              className="h-10 w-auto mb-4"
+            />
+            <p className="text-sm opacity-80">
               {t.footer.description}
             </p>
-            <div className="w-12 h-12 border-2 border-paniers-red rounded-lg opacity-50" />
           </div>
 
           <div>

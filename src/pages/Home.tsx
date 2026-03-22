@@ -132,9 +132,9 @@ export function Home() {
             <div className="space-y-6">
               <div className="flex items-center justify-center mb-8">
                 <img
-                  src="/Logo_les_paniers.png"
+                  src="/Group_1.svg"
                   alt="Les Paniers"
-                  className="h-24 md:h-32 w-auto object-contain"
+                  className="h-16 md:h-20 w-auto"
                 />
               </div>
               <p className="text-2xl md:text-3xl text-paniers-orange font-medium">
