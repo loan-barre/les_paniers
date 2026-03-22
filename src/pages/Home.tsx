@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ChefHat, Wine, Clock, ChevronDown } from 'lucide-react';
+import { ChefHat, Wine, ChevronDown } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -269,48 +269,6 @@ export function Home() {
 
       <Section className="bg-white animate-section" id="newsletter">
         <Newsletter />
-      </Section>
-
-      <Section className="bg-paniers-light animate-section" id="visit">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif font-bold text-4xl text-center mb-12 text-paniers-dark">
-            {t.contact.getInTouch}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="bg-paniers-orange bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock size={32} className="text-paniers-orange" />
-              </div>
-              <h3 className="font-serif font-bold text-lg mb-2 text-paniers-dark">{t.reservation.hours}</h3>
-              <p className="text-sm text-paniers-dark opacity-80">{t.reservation.lunch}: 12:00 - 14:30</p>
-              <p className="text-sm text-paniers-dark opacity-80">{t.reservation.dinner}: 19:00 - 22:00</p>
-            </Card>
-            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="bg-paniers-orange bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ChefHat size={32} className="text-paniers-orange" />
-              </div>
-              <h3 className="font-serif font-bold text-lg mb-2 text-paniers-dark">{t.menu.title}</h3>
-              <p className="text-sm text-paniers-dark opacity-80 mb-4">{t.menu.subtitle}</p>
-              <Link to="/menu">
-                <Button variant="outline" size="sm">
-                  {t.common.viewMenu}
-                </Button>
-              </Link>
-            </Card>
-            <Card className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="bg-paniers-orange bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wine size={32} className="text-paniers-orange" />
-              </div>
-              <h3 className="font-serif font-bold text-lg mb-2 text-paniers-dark">{t.reservation.title}</h3>
-              <p className="text-sm text-paniers-dark opacity-80 mb-4">{t.reservation.subtitle}</p>
-              <a href={siteConfig.thefork.reservationUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="primary" size="sm">
-                  {t.common.bookNow}
-                </Button>
-              </a>
-            </Card>
-          </div>
-        </div>
       </Section>
     </main>
   );
