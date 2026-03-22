@@ -1,0 +1,142 @@
+{
+  "starters": [
+    {
+      "id": 1,
+      "name": "Burrata & Heirloom Tomatoes",
+      "description": "Creamy burrata with seasonal tomatoes, basil oil, and aged balsamic",
+      "price": "14€",
+      "winePairing": "White"
+    },
+    {
+      "id": 2,
+      "name": "Pan-Seared Foie Gras",
+      "description": "Served with brioche and fig compote",
+      "price": "18€",
+      "winePairing": "White"
+    },
+    {
+      "id": 3,
+      "name": "Cured Ham & Melon",
+      "description": "Jamón ibérico with fresh seasonal melon",
+      "price": "16€",
+      "winePairing": "Rosé"
+    },
+    {
+      "id": 4,
+      "name": "Wild Mushroom Bisque",
+      "description": "Creamy soup with truffle oil and crispy bread",
+      "price": "12€",
+      "winePairing": "White"
+    }
+  ],
+  "mains": [
+    {
+      "id": 5,
+      "name": "Duck Confit with Root Vegetables",
+      "description": "Slow-cooked duck leg served with seasonal root vegetables and pan sauce",
+      "price": "28€",
+      "winePairing": "Red"
+    },
+    {
+      "id": 6,
+      "name": "Pan-Seared Sea Bass",
+      "description": "Fresh market fish with lemon beurre blanc and seasonal vegetables",
+      "price": "26€",
+      "winePairing": "White"
+    },
+    {
+      "id": 7,
+      "name": "Beef Tartare",
+      "description": "Hand-cut beef with capers, cornichons, and quail egg",
+      "price": "22€",
+      "winePairing": "Red"
+    },
+    {
+      "id": 8,
+      "name": "Vegetable Tart",
+      "description": "Seasonal vegetables in handmade puff pastry with goat cheese",
+      "price": "18€",
+      "winePairing": "White"
+    }
+  ],
+  "desserts": [
+    {
+      "id": 9,
+      "name": "Chocolate Soufflé",
+      "description": "Dark chocolate soufflé with vanilla cream",
+      "price": "10€",
+      "winePairing": "Dessert Wine"
+    },
+    {
+      "id": 10,
+      "name": "Lemon Tart",
+      "description": "Crispy pastry with tangy lemon curd and meringue",
+      "price": "9€",
+      "winePairing": "Dessert Wine"
+    },
+    {
+      "id": 11,
+      "name": "Panna Cotta",
+      "description": "Silky vanilla panna cotta with seasonal berry compote",
+      "price": "8€",
+      "winePairing": "Moscato"
+    },
+    {
+      "id": 12,
+      "name": "Cheese Selection",
+      "description": "Curated selection of French artisanal cheeses with crackers and jam",
+      "price": "12€",
+      "winePairing": "Red"
+    }
+  ],
+  "wines": [
+    {
+      "id": 13,
+      "name": "Sancerre Blanc 2022",
+      "type": "White",
+      "region": "Loire Valley",
+      "description": "Crisp and mineral with citrus notes",
+      "price": "32€"
+    },
+    {
+      "id": 14,
+      "name": "Burgundy Pinot Noir 2019",
+      "type": "Red",
+      "region": "Burgundy",
+      "description": "Elegant and complex with cherry flavors",
+      "price": "48€"
+    },
+    {
+      "id": 15,
+      "name": "Provence Rosé 2023",
+      "type": "Rosé",
+      "region": "Provence",
+      "description": "Dry and refreshing with stone fruit notes",
+      "price": "28€"
+    },
+    {
+      "id": 16,
+      "name": "Côtes du Rhône 2020",
+      "type": "Red",
+      "region": "Rhône Valley",
+      "description": "Fruity and approachable with peppery finish",
+      "price": "35€"
+    },
+    {
+      "id": 17,
+      "name": "Sauvignon Blanc 2023",
+      "type": "White",
+      "region": "Loire Valley",
+      "description": "Vibrant and aromatic with herbaceous notes",
+      "price": "30€"
+    },
+    {
+      "id": 18,
+      "name": "Alsatian Riesling 2021",
+      "type": "White",
+      "region": "Alsace",
+      "description": "Semi-dry with floral and stone fruit characteristics",
+      "price": "38€"
+    }
+  ]
+}
