@@ -19,7 +19,18 @@ export function Footer() {
     const today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
     const hours = siteConfig.openingHours[today as keyof typeof siteConfig.openingHours];
     if (hours) {
-      return `${hours.open} - ${hours.close} | ${hours.evening} - ${hours.closeEvening}`;
+      const lunchHours = hours.open && hours.close ? `${hours.open} - ${hours.close}` : '';
+      const eveningHours = hours.evening && hours.closeEvening ? `${hours.evening} - ${hours.closeEvening}` : '';
+
+      if (lunchHours && eveningHours) {
+        return `${lunchHours} | ${eveningHours}`;
+      } else if (lunchHours) {
+        return lunchHours;
+      } else if (eveningHours) {
+        return eveningHours;
+      } else {
+        return 'Sur rendez-vous';
+      }
     }
     return t.reservation.closed;
   };
