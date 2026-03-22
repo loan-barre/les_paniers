@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 
+// TODO: Remplacer par les images définitives du restaurant
 const galleryImages = [
   {
     url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',

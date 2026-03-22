@@ -17,15 +17,16 @@ export function Catering() {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // TODO: Remplacer par les images définitives
   const cateringGallery = [
-    { id: 1, title: 'Mini Appetizers', image: 'catering-appetizers.jpg' },
-    { id: 2, title: 'Charcuterie Board', image: 'catering-charcuterie.jpg' },
-    { id: 3, title: 'Gourmet Desserts', image: 'catering-desserts.jpg' },
-    { id: 4, title: 'Cheese Selection', image: 'catering-cheese.jpg' },
-    { id: 5, title: 'Entrée Platters', image: 'catering-entrees.jpg' },
-    { id: 6, title: 'Buffet Setup', image: 'catering-buffet.jpg' },
-    { id: 7, title: 'Cocktail Bites', image: 'catering-cocktail.jpg' },
-    { id: 8, title: 'Sweet Station', image: 'catering-sweets.jpg' },
+    { id: 1, title: 'Mini Appetizers', image: 'https://images.unsplash.com/photo-1608877907149-a206d75ba011?w=800&h=600&fit=crop&q=80' },
+    { id: 2, title: 'Charcuterie Board', image: 'https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&h=600&fit=crop&q=80' },
+    { id: 3, title: 'Gourmet Desserts', image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&h=600&fit=crop&q=80' },
+    { id: 4, title: 'Cheese Selection', image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=800&h=600&fit=crop&q=80' },
+    { id: 5, title: 'Entrée Platters', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=600&fit=crop&q=80' },
+    { id: 6, title: 'Buffet Setup', image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=800&h=600&fit=crop&q=80' },
+    { id: 7, title: 'Cocktail Bites', image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=600&fit=crop&q=80' },
+    { id: 8, title: 'Sweet Station', image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=600&fit=crop&q=80' },
   ];
 
   const eventTypes = ['Wedding', 'Business Event', 'Birthday Party', 'Cocktail Reception', 'Anniversary', 'Graduation'];
@@ -94,20 +95,13 @@ export function Catering() {
               </div>
             </div>
           </div>
-          <div className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-96 flex items-center justify-center">
+          <div className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-96 flex items-center justify-center overflow-hidden">
+            {/* TODO: Remplacer par l'image définitive */}
             <img
-              src="/images/catering-header.jpg"
+              src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&h=800&fit=crop&q=80"
               alt="Catering presentation"
               className="w-full h-full object-cover rounded-lg"
-              onError={(e) => {
-                e.currentTarget.style.background = '#D2691E';
-                e.currentTarget.style.display = 'none';
-              }}
             />
-            <div className="text-paniers-cream text-center">
-              <Utensils size={48} className="mx-auto opacity-50 mb-2" />
-              <p className="text-sm opacity-50">catering-header.jpg</p>
-            </div>
           </div>
         </div>
 
@@ -119,22 +113,15 @@ export function Catering() {
             {cateringGallery.map((item) => (
               <div
                 key={item.id}
-                className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-48 flex items-center justify-center overflow-hidden group cursor-pointer"
+                className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-48 flex items-center justify-center overflow-hidden group cursor-pointer relative"
               >
                 <img
-                  src={`/images/${item.image}`}
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                  onError={(e) => {
-                    e.currentTarget.style.background = '#D4A574';
-                    e.currentTarget.style.display = 'none';
-                  }}
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition-opacity flex items-center justify-center rounded-lg">
                   <p className="text-paniers-cream font-semibold">{item.title}</p>
-                </div>
-                <div className="text-paniers-brown text-center">
-                  <p className="text-sm opacity-50">{item.image}</p>
                 </div>
               </div>
             ))}

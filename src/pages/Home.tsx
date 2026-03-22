@@ -28,19 +28,22 @@ export function Home() {
       id: 1,
       title: { en: 'Pan-Seared Duck', fr: 'Canard Poêlé' },
       description: { en: 'Slow-cooked duck with seasonal root vegetables', fr: 'Canard mijoté avec légumes racines de saison' },
-      image: 'dish-highlight-1.jpg',
+      // TODO: Remplacer par l'image définitive
+      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop&q=80',
     },
     {
       id: 2,
       title: { en: 'Fresh Seafood', fr: 'Fruits de Mer Frais' },
       description: { en: 'Daily market catch prepared with care', fr: 'Pêche du jour préparée avec soin' },
-      image: 'dish-highlight-2.jpg',
+      // TODO: Remplacer par l'image définitive
+      image: 'https://images.unsplash.com/photo-1559737558-2f56c6e37c56?w=800&h=600&fit=crop&q=80',
     },
     {
       id: 3,
       title: { en: 'Artisanal Desserts', fr: 'Desserts Artisanaux' },
       description: { en: 'Handmade sweet creations daily', fr: 'Créations sucrées faites maison chaque jour' },
-      image: 'dish-highlight-3.jpg',
+      // TODO: Remplacer par l'image définitive
+      image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&h=600&fit=crop&q=80',
     },
   ];
 
@@ -195,20 +198,13 @@ export function Home() {
               </Button>
             </Link>
           </div>
-          <div className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-96 flex items-center justify-center">
+          <div className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-96 flex items-center justify-center overflow-hidden">
+            {/* TODO: Remplacer par l'image définitive */}
             <img
-              src="/images/about-interior.jpg"
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop&q=80"
               alt="Restaurant interior"
               className="w-full h-full object-cover rounded-lg"
-              onError={(e) => {
-                e.currentTarget.style.background = '#D4A574';
-                e.currentTarget.style.display = 'none';
-              }}
             />
-            <div className="text-paniers-brown text-center">
-              <ChefHat size={48} className="mx-auto opacity-50 mb-2" />
-              <p className="text-sm opacity-50">about-interior.jpg</p>
-            </div>
           </div>
         </div>
       </Section>
@@ -222,19 +218,12 @@ export function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {highlights.map((item) => (
             <Card key={item.id} className="overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="bg-gradient-to-br from-paniers-wood to-paniers-terracotta h-48 flex items-center justify-center relative rounded-t-lg">
+              <div className="bg-gradient-to-br from-paniers-wood to-paniers-terracotta h-48 flex items-center justify-center relative rounded-t-lg overflow-hidden">
                 <img
-                  src={`/images/${item.image}`}
+                  src={item.image}
                   alt={item.title[language]}
                   className="w-full h-full object-cover absolute inset-0"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
                 />
-                <div className="relative z-10 text-white text-center bg-paniers-dark bg-opacity-50 p-2 rounded">
-                  <Wine size={32} className="mx-auto opacity-50" />
-                  <p className="text-xs opacity-50 mt-1">{item.image}</p>
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="font-display font-bold text-xl text-paniers-dark mb-2">
