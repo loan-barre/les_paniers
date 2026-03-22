@@ -53,7 +53,7 @@ export function AdminLogin() {
             <div className="w-16 h-16 bg-paniers-red rounded-full flex items-center justify-center mb-4">
               <Lock className="w-8 h-8 text-white" />
             </div>
-            <h1 className="font-serif font-bold text-2xl text-paniers-dark">
+            <h1 className="font-display font-bold text-2xl text-paniers-dark">
               Gestion Interne
             </h1>
             <p className="text-sm text-paniers-dark opacity-60 mt-2">

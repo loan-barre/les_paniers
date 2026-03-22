@@ -36,7 +36,7 @@ export function Contact() {
     <main className="bg-paniers-cream">
       <Section className="bg-paniers-dark text-paniers-cream text-center py-16">
         <div className="space-y-4">
-          <h1 className="font-serif font-bold text-5xl md:text-6xl">{t.contact.pageTitle}</h1>
+          <h1 className="font-display font-bold text-5xl md:text-6xl">{t.contact.pageTitle}</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             {t.contact.pageSubtitle}
           </p>
@@ -46,7 +46,7 @@ export function Contact() {
       <Section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-8">
           <div>
-            <h2 className="font-serif font-bold text-3xl text-paniers-dark mb-6">
+            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-6">
               {t.contact.informationTitle}
             </h2>
 
@@ -90,7 +90,7 @@ export function Contact() {
           </div>
 
           <div>
-            <h2 className="font-serif font-bold text-3xl text-paniers-dark mb-6">
+            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-6">
               {t.contact.hoursTitle}
             </h2>
             <div className="space-y-3">
@@ -116,7 +116,7 @@ export function Contact() {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm p-8 border border-paniers-border h-fit">
-          <h2 className="font-serif font-bold text-2xl text-paniers-dark mb-6">
+          <h2 className="font-display font-bold text-2xl text-paniers-dark mb-6">
             {t.contact.formTitle}
           </h2>
 
@@ -171,7 +171,7 @@ export function Contact() {
       <Section className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <Card>
-            <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
+            <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
               {t.contact.visitUsTitle}
             </h3>
             <p className="text-paniers-dark opacity-80">
@@ -180,7 +180,7 @@ export function Contact() {
           </Card>
 
           <Card>
-            <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
+            <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
               {t.contact.guidelinesTitle}
             </h3>
             <p className="text-paniers-dark opacity-80">
@@ -190,7 +190,7 @@ export function Contact() {
         </div>
 
         <div className="bg-paniers-light rounded-lg p-8 text-center">
-          <h2 className="font-serif font-bold text-2xl text-paniers-dark mb-4">
+          <h2 className="font-display font-bold text-2xl text-paniers-dark mb-4">
             {t.contact.privateDiningTitle}
           </h2>
           <p className="text-paniers-dark opacity-90 max-w-2xl mx-auto mb-6">
@@ -207,7 +207,7 @@ export function Contact() {
       <Section className="bg-paniers-dark text-paniers-cream">
         <div className="text-center space-y-4">
           <Clock className="mx-auto text-paniers-red" size={40} />
-          <h2 className="font-serif font-bold text-3xl">
+          <h2 className="font-display font-bold text-3xl">
             {t.contact.experienceTitle}
           </h2>
           <p className="opacity-90 max-w-2xl mx-auto">

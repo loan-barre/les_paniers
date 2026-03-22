@@ -7,7 +7,7 @@ export function Reservation() {
     <main className="bg-paniers-cream">
       <Section className="bg-paniers-dark text-paniers-cream text-center py-16">
         <div className="space-y-4">
-          <h1 className="font-serif font-bold text-5xl md:text-6xl">Book a Table</h1>
+          <h1 className="font-display font-bold text-5xl md:text-6xl">Book a Table</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Reserve your table at Les Paniers
           </p>
@@ -17,7 +17,7 @@ export function Reservation() {
       <Section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-8">
           <div>
-            <h2 className="font-serif font-bold text-3xl text-paniers-dark mb-4">
+            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-4">
               Reservation Options
             </h2>
             <p className="text-paniers-dark opacity-90 mb-6">
@@ -77,7 +77,7 @@ export function Reservation() {
         <div className="bg-white rounded-lg shadow-sm p-8 border border-paniers-border h-fit">
           <div className="space-y-6">
             <div>
-              <h3 className="font-serif font-bold text-2xl text-paniers-dark mb-2">
+              <h3 className="font-display font-bold text-2xl text-paniers-dark mb-2">
                 Book Through TheFork
               </h3>
               <p className="text-paniers-dark opacity-80 mb-6">

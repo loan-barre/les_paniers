@@ -179,7 +179,7 @@ export function Home() {
       <Section className="bg-white animate-section" id="about">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-serif font-bold text-4xl mb-6 text-paniers-dark">
+            <h2 className="font-display font-bold text-4xl mb-6 text-paniers-dark">
               {t.home.about.title}
             </h2>
             <p className="text-paniers-dark opacity-90 mb-4 leading-relaxed">
@@ -214,7 +214,7 @@ export function Home() {
 
       <Section className="bg-paniers-light animate-section" id="highlights">
         <div className="mb-12">
-          <h2 className="font-serif font-bold text-4xl text-paniers-dark mb-3">
+          <h2 className="font-display font-bold text-4xl text-paniers-dark mb-3">
             {t.home.highlights.title}
           </h2>
         </div>
@@ -236,7 +236,7 @@ export function Home() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-serif font-bold text-xl text-paniers-dark mb-2">
+                <h3 className="font-display font-bold text-xl text-paniers-dark mb-2">
                   {item.title[language]}
                 </h3>
                 <p className="text-paniers-dark opacity-80 text-sm">

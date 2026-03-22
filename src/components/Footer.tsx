@@ -40,7 +40,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif font-bold mb-4">{t.footer.location}</h4>
+            <h4 className="font-display font-bold mb-4">{t.footer.location}</h4>
             <div className="space-y-3 text-sm opacity-80">
               <div className="flex gap-3">
                 <MapPin size={18} className="flex-shrink-0 text-paniers-red mt-0.5" />
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif font-bold mb-4">{t.footer.todaysHours}</h4>
+            <h4 className="font-display font-bold mb-4">{t.footer.todaysHours}</h4>
             <p className="text-sm opacity-80">{getDisplayHours()}</p>
             <div className="mt-6">
               <h5 className="text-xs font-semibold mb-2 opacity-80">{t.footer.followUs}</h5>
@@ -96,7 +96,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-serif font-bold mb-4">{t.footer.newsletter.title}</h4>
+            <h4 className="font-display font-bold mb-4">{t.footer.newsletter.title}</h4>
             <p className="text-sm opacity-80 mb-4">{t.footer.newsletter.description}</p>
             <form onSubmit={handleNewsletterSubmit} className="space-y-2">
               <input

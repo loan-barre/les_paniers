@@ -66,7 +66,7 @@ export function Menu() {
   return (
     <main className="bg-paniers-cream">
       <Section className="bg-gradient-to-b from-paniers-light to-paniers-cream text-center py-16">
-        <h1 className="font-serif font-bold text-5xl md:text-6xl text-paniers-dark mb-4">
+        <h1 className="font-display font-bold text-5xl md:text-6xl text-paniers-dark mb-4">
           {t.menu.title}
         </h1>
         <p className="text-lg text-paniers-brown max-w-2xl mx-auto">
@@ -122,7 +122,7 @@ export function Menu() {
               getMenuItems().map((item) => (
                 <Card key={item.id} className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-serif font-bold text-xl text-paniers-dark pr-4">
+                    <h3 className="font-display font-bold text-xl text-paniers-dark pr-4">
                       {item.name}
                     </h3>
                     <span className="text-paniers-red font-bold text-lg flex-shrink-0">

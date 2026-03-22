@@ -129,7 +129,7 @@ export function AdminDashboard() {
       <div className="min-h-screen bg-paniers-cream">
         <header className="bg-white shadow-sm border-b border-paniers-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 className="font-serif font-bold text-2xl text-paniers-dark">
+            <h1 className="font-display font-bold text-2xl text-paniers-dark">
               Gestion du Menu - Les Paniers
             </h1>
             <button
@@ -157,7 +157,7 @@ export function AdminDashboard() {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
               <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-4">
-                  <h2 className="font-serif font-bold text-xl text-paniers-dark">
+                  <h2 className="font-display font-bold text-xl text-paniers-dark">
                     Nouveau plat
                   </h2>
                   <button onClick={() => setShowAddForm(false)}>
@@ -318,7 +318,7 @@ export function AdminDashboard() {
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
               <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-4">
-                  <h2 className="font-serif font-bold text-xl text-paniers-dark">
+                  <h2 className="font-display font-bold text-xl text-paniers-dark">
                     Modifier le plat
                   </h2>
                   <button onClick={() => setEditingItem(null)}>

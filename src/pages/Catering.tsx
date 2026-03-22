@@ -56,7 +56,7 @@ export function Catering() {
     <main className="bg-paniers-cream">
       <Section className="bg-paniers-dark text-paniers-cream text-center py-16">
         <div className="space-y-4">
-          <h1 className="font-serif font-bold text-5xl md:text-6xl">Catering Services</h1>
+          <h1 className="font-display font-bold text-5xl md:text-6xl">Catering Services</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Let us bring our seasonal cuisine to your special event
           </p>
@@ -66,7 +66,7 @@ export function Catering() {
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <h2 className="font-serif font-bold text-4xl text-paniers-dark mb-6">
+            <h2 className="font-display font-bold text-4xl text-paniers-dark mb-6">
               Celebrate Your Occasion
             </h2>
             <p className="text-paniers-dark opacity-90 mb-4 leading-relaxed">
@@ -112,7 +112,7 @@ export function Catering() {
         </div>
 
         <div>
-          <h2 className="font-serif font-bold text-4xl text-paniers-dark mb-8 text-center">
+          <h2 className="font-display font-bold text-4xl text-paniers-dark mb-8 text-center">
             Gallery
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,7 +145,7 @@ export function Catering() {
       <Section className="bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="font-serif font-bold text-3xl text-paniers-dark mb-8">
+            <h2 className="font-display font-bold text-3xl text-paniers-dark mb-8">
               Request Your Event
             </h2>
             {submitted ? (
@@ -241,7 +241,7 @@ export function Catering() {
 
           <div className="space-y-6">
             <Card>
-              <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
+              <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
                 Wedding Receptions
               </h3>
               <p className="text-paniers-dark opacity-80">
@@ -250,7 +250,7 @@ export function Catering() {
             </Card>
 
             <Card>
-              <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
+              <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
                 Corporate Events
               </h3>
               <p className="text-paniers-dark opacity-80">
@@ -259,7 +259,7 @@ export function Catering() {
             </Card>
 
             <Card>
-              <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
+              <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
                 Private Parties
               </h3>
               <p className="text-paniers-dark opacity-80">
@@ -268,7 +268,7 @@ export function Catering() {
             </Card>
 
             <Card>
-              <h3 className="font-serif font-bold text-xl text-paniers-dark mb-3">
+              <h3 className="font-display font-bold text-xl text-paniers-dark mb-3">
                 Cocktail Receptions
               </h3>
               <p className="text-paniers-dark opacity-80">
@@ -281,7 +281,7 @@ export function Catering() {
 
       <Section className="bg-paniers-light">
         <div className="text-center space-y-6 max-w-2xl mx-auto">
-          <h2 className="font-serif font-bold text-3xl text-paniers-dark">
+          <h2 className="font-display font-bold text-3xl text-paniers-dark">
             Pricing & Packages
           </h2>
           <p className="text-paniers-dark opacity-90">
