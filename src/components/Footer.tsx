@@ -32,7 +32,7 @@ export function Footer() {
             <img
               src="/Group_1.svg"
               alt="Les Paniers"
-              className="h-10 w-auto mb-4"
+              className="h-7 w-auto mb-4"
             />
             <p className="text-sm opacity-80">
               {t.footer.description}
