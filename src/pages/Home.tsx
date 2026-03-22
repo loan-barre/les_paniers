@@ -192,11 +192,6 @@ export function Home() {
             <p className="text-paniers-dark opacity-90 mb-6 leading-relaxed">
               {t.home.about.mission}
             </p>
-            <Link to="/menu">
-              <Button variant="outline">
-                {t.home.highlights.viewMenu}
-              </Button>
-            </Link>
           </div>
           <div className="bg-gradient-to-br from-paniers-light to-paniers-border rounded-lg h-96 flex items-center justify-center overflow-hidden">
             {/* TODO: Remplacer par l'image définitive */}
