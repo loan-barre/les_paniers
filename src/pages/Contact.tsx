@@ -92,32 +92,25 @@ export function Contact() {
                 const hours =
                   siteConfig.openingHours[dayKey as keyof typeof siteConfig.openingHours];
 
-                let displayHours = '';
-                if (hours) {
-                  const lunchHours = hours.open && hours.close ? `${hours.open} - ${hours.close}` : '';
-                  const eveningHours = hours.evening && hours.closeEvening ? `${hours.evening} - ${hours.closeEvening}` : '';
+                let lunchHours = '';
+                let eveningHours = '';
 
-                  if (lunchHours && eveningHours) {
-                    displayHours = `${lunchHours} | ${eveningHours}`;
-                  } else if (lunchHours) {
-                    displayHours = lunchHours;
-                  } else if (eveningHours) {
-                    displayHours = eveningHours;
-                  } else {
-                    displayHours = 'Sur rendez-vous';
-                  }
-                } else {
-                  displayHours = t.contact.closed;
+                if (hours) {
+                  lunchHours = hours.open && hours.close ? `${hours.open} - ${hours.close}` : '';
+                  eveningHours = hours.evening && hours.closeEvening ? `${hours.evening} - ${hours.closeEvening}` : '';
                 }
 
                 return (
                   <div
                     key={dayKey}
-                    className="flex justify-between items-center pb-3 border-b border-paniers-border last:border-0 min-h-[2rem]"
+                    className="grid grid-cols-[1fr_auto_auto] gap-4 items-center pb-3 border-b border-paniers-border last:border-0 min-h-[2rem]"
                   >
                     <span className="font-medium text-paniers-dark">{t.contact.days[dayKey as keyof typeof t.contact.days]}</span>
-                    <span className="text-paniers-dark opacity-80">
-                      {displayHours}
+                    <span className="text-paniers-dark opacity-80 text-right w-32">
+                      {lunchHours || '-'}
+                    </span>
+                    <span className="text-paniers-dark opacity-80 text-right w-32">
+                      {eveningHours || '-'}
                     </span>
                   </div>
                 );
